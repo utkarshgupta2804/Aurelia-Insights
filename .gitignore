@@ -1,0 +1,79 @@
+# =========================
+# Root / Common
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# Node modules
+node_modules/
+**/node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# =========================
+# v0 / Vercel
+# =========================
+
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+
+.snowflake/
+.v0-trash/
+.vercel/
+
+# =========================
+# Frontend (React + Vite)
+# =========================
+
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+
+# Vite env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.production.local
+
+# =========================
+# Backend (Node.js + TS)
+# =========================
+
+backend/dist/
+backend/build/
+backend/coverage/
+
+# TS build info
+backend/*.tsbuildinfo
+
+# Runtime/temp files
+backend/tmp/
+backend/uploads/
+
+# =========================
+# Package Managers
+# =========================
+
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
