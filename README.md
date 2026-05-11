@@ -23,13 +23,6 @@ The system enables QR-based product tracking, genealogy tracing, recall simulati
 
 # Local Setup
 
-## 1. Clone Repository
-
-```bash
-git clone <your-repo-url>
-cd <project-folder>
-```
-
 ---
 
 # Backend Setup
