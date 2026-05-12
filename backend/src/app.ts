@@ -28,7 +28,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Error handling middleware
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   console.error('Error:', err)
   res.status(err.status || 500).json({
     error: err.message || 'Internal Server Error',
@@ -45,7 +45,7 @@ app.use('/api/stats', statsRoutes)
 app.use('/api/risk-score', riskScoreRoutes)
 
 // Health check
-app.get('/api/health', (req: Request, res: Response) => {
+app.get('/api/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok' })
 })
 

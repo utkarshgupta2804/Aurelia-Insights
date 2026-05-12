@@ -4,7 +4,7 @@ import { PackagingBatch } from '../models/PackagingBatch'
 
 const router = Router()
 
-router.get('/processing', async (req: Request, res: Response) => {
+router.get('/processing', async (_req: Request, res: Response) => {
   try {
     const batches = await ProcessingBatch.find()
       .populate('receptionBatches')
@@ -16,7 +16,7 @@ router.get('/processing', async (req: Request, res: Response) => {
   }
 })
 
-router.get('/packaging', async (req: Request, res: Response) => {
+router.get('/packaging', async (_req: Request, res: Response) => {
   try {
     const batches = await PackagingBatch.find()
       .populate('processingBatch')
@@ -28,13 +28,14 @@ router.get('/packaging', async (req: Request, res: Response) => {
   }
 })
 
-router.get('/processing/:id', async (req: Request, res: Response) => {
+router.get('/processing/:id', async (req: Request, res: Response): Promise<void> => {
   try {
     const batch = await ProcessingBatch.findById(req.params.id).populate(
       'receptionBatches'
     )
     if (!batch) {
-      return res.status(404).json({ error: 'Batch not found' })
+      res.status(404).json({ error: 'Batch not found' })
+      return
     }
     res.json(batch)
   } catch (error: any) {
@@ -43,13 +44,14 @@ router.get('/processing/:id', async (req: Request, res: Response) => {
   }
 })
 
-router.get('/packaging/:id', async (req: Request, res: Response) => {
+router.get('/packaging/:id', async (req: Request, res: Response): Promise<void> => {
   try {
     const batch = await PackagingBatch.findById(req.params.id).populate(
       'processingBatch'
     )
     if (!batch) {
-      return res.status(404).json({ error: 'Batch not found' })
+      res.status(404).json({ error: 'Batch not found' })
+      return
     }
     res.json(batch)
   } catch (error: any) {

@@ -3,18 +3,18 @@ import { simulateRecall } from '../services/recallService'
 
 const router = Router()
 
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response): Promise<void> => {
   try {
     const { batchId, batchType } = req.body
 
     if (!batchId || !batchType) {
-      return res.status(400).json({
-        error: 'batchId and batchType (processing or reception) are required',
-      })
+      res.status(400).json({ error: 'batchId and batchType (processing or reception) are required' })
+      return
     }
 
     if (!['processing', 'reception'].includes(batchType)) {
-      return res.status(400).json({ error: 'batchType must be "processing" or "reception"' })
+      res.status(400).json({ error: 'batchType must be "processing" or "reception"' })
+      return
     }
 
     const result = await simulateRecall(batchId, batchType)

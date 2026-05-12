@@ -1,6 +1,5 @@
 import { Bottle } from '../models/Bottle'
 import { PackagingBatch } from '../models/PackagingBatch'
-import { ProcessingBatch } from '../models/ProcessingBatch'
 import { ReceptionBatch } from '../models/ReceptionBatch'
 import { TankerTrip } from '../models/TankerTrip'
 import { CollectionCenter } from '../models/CollectionCenter'

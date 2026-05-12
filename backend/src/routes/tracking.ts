@@ -3,19 +3,19 @@ import { Bottle } from '../models/Bottle'
 
 const router = Router()
 
-router.post('/update', async (req: Request, res: Response) => {
+router.post('/update', async (req: Request, res: Response): Promise<void> => {
   try {
     const { bottleId, stage, location, temperature, updatedBy } = req.body
 
     if (!bottleId || !stage || !location) {
-      return res.status(400).json({
-        error: 'bottleId, stage, and location are required',
-      })
+      res.status(400).json({ error: 'bottleId, stage, and location are required' })
+      return
     }
 
     const bottle = await Bottle.findById(bottleId)
     if (!bottle) {
-      return res.status(404).json({ error: 'Bottle not found' })
+      res.status(404).json({ error: 'Bottle not found' })
+      return
     }
 
     // Add tracking log
@@ -37,11 +37,12 @@ router.post('/update', async (req: Request, res: Response) => {
   }
 })
 
-router.get('/:bottleId', async (req: Request, res: Response) => {
+router.get('/:bottleId', async (req: Request, res: Response): Promise<void> => {
   try {
     const bottle = await Bottle.findById(req.params.bottleId)
     if (!bottle) {
-      return res.status(404).json({ error: 'Bottle not found' })
+      res.status(404).json({ error: 'Bottle not found' })
+      return
     }
     res.json({
       bottleId: bottle._id,

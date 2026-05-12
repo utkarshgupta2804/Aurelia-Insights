@@ -1,5 +1,4 @@
 import { ProcessingBatch } from '../models/ProcessingBatch'
-import { ReceptionBatch } from '../models/ReceptionBatch'
 import { PackagingBatch } from '../models/PackagingBatch'
 import { Bottle } from '../models/Bottle'
 
@@ -100,7 +99,7 @@ const recallFromReceptionBatch = async (receptionBatchId: string): Promise<Recal
   }
 }
 
-const determineSeverity = (bottleCount: number, batchCount: number): string => {
+const determineSeverity = (bottleCount: number, _batchCount: number): string => {
   if (bottleCount === 0) {
     return 'none'
   } else if (bottleCount < 10000) {

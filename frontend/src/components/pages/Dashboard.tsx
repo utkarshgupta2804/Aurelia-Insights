@@ -3,7 +3,7 @@ import { api } from '../../services/api'
 import { StatCard } from '../StatCard'
 import { RiskBadge } from '../RiskBadge'
 import { Package, AlertTriangle, TrendingUp, Clock } from 'lucide-react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 interface Stats {
   totalBottles: number

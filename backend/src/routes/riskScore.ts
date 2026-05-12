@@ -1,6 +1,5 @@
 import { Router, Request, Response } from 'express'
 import { ProcessingBatch } from '../models/ProcessingBatch'
-import { ReceptionBatch } from '../models/ReceptionBatch'
 import { TankerTrip } from '../models/TankerTrip'
 import { QualityEvent } from '../models/QualityEvent'
 import { CollectionCenter } from '../models/CollectionCenter'
@@ -15,7 +14,7 @@ import {
 
 const router = Router()
 
-router.get('/:batchId', async (req: Request, res: Response) => {
+router.get('/:batchId', async (req: Request, res: Response): Promise<void> => {
   try {
     const { batchId } = req.params
 
@@ -25,7 +24,8 @@ router.get('/:batchId', async (req: Request, res: Response) => {
     )
 
     if (!processingBatch) {
-      return res.status(404).json({ error: 'Batch not found' })
+      res.status(404).json({ error: 'Batch not found' })
+      return
     }
 
     // Get reception batches

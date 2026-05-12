@@ -6,7 +6,7 @@ import { QualityEvent } from '../models/QualityEvent'
 
 const router = Router()
 
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', async (_req: Request, res: Response) => {
   try {
     const totalBottles = await Bottle.countDocuments()
     const totalPackagingBatches = await PackagingBatch.countDocuments()
