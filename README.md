@@ -190,6 +190,58 @@ These payloads are pre-seeded in the database.
 ]
 ```
 
-You can directly paste any `qrPayload` value into the application to test the complete traceability flow.
+# Packaging Batch → Processing Batch Mapping
+
+Use the following mappings while testing:
+
+- Recall Simulation
+
+```json
+[
+  {
+    "batchCode": "AMUL-PKG-MUM-20260505-B-01",
+    "processingBatchId": "6a03190818cac9124e92135e"
+  },
+  {
+    "batchCode": "AMUL-PKG-MUM-20260506-A-01",
+    "processingBatchId": "6a03190818cac9124e92135f"
+  },
+  {
+    "batchCode": "AMUL-PKG-MUM-20260506-B-01",
+    "processingBatchId": "6a03190818cac9124e921360"
+  },
+  {
+    "batchCode": "AMUL-PKG-MUM-20260506-C-01",
+    "processingBatchId": "6a03190818cac9124e92135f"
+  }
+]
+```
+
+# Reception Batch Test Data
+
+Use the following reception batches for testing:
+
+- Recall Simulation
+
+```json
+[
+  {
+    "_id": "6a03190818cac9124e921358",
+    "batchCode": "MUM-REC-20260505-TK02-01"
+  },
+  {
+    "_id": "6a03190818cac9124e921359",
+    "batchCode": "MUM-REC-20260505-TK03-01"
+  },
+  {
+    "_id": "6a03190818cac9124e92135a",
+    "batchCode": "MUM-REC-20260506-TK04-01"
+  },
+  {
+    "_id": "6a03190818cac9124e92135b",
+    "batchCode": "MUM-REC-20260506-TK05-01"
+  }
+]
+```
 ---
 
