@@ -9,7 +9,7 @@ import {
   PackagingBatch,
 } from '../types'
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+const API_BASE_URL=import.meta.env.VITE_API_URL
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -66,8 +66,8 @@ export const api = {
     return response.data
   },
 
-  getBottle: async (bottleId: string): Promise<Bottle> => {
-    const response = await apiClient.get(`/bottles/${bottleId}`)
+  getTracking: async (bottleId: string): Promise<Bottle> => {
+    const response = await apiClient.get(`/tracking/${bottleId}`)
     return response.data
   },
 

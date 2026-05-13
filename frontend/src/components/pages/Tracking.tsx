@@ -31,7 +31,7 @@ export const Tracking: FC = () => {
     try {
       setLoading(true)
       setError(null)
-      const data = await api.getBottle(bottleId)
+      const data = await api.getTracking(bottleId)
       setTracking({
         bottleId: data._id,
         currentStage: data.currentStage,
